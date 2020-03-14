@@ -38,10 +38,8 @@
 
 ```javascript
 var app = new Vue({
-  // plug into id=app
   el: "#app",
   data: {
-    inStock: true,
     inventory: 10
   }
 });
@@ -67,7 +65,6 @@ var app = new Vue({
 
 ```javascript
 var app = new Vue({
-  // plug into id=app
   el: "#app",
   data: {
     details: ["80% cotton", "20% polyester", "Gender-neutral"],
