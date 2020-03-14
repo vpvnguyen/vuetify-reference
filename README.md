@@ -5,13 +5,13 @@
 - v-bind dynamically binds and attribute to an expression
 - v-bind:src="expression"
 
-```javascript
+```html
 <img v-bind:src="image" />
 ```
 
 #### shorthand
 
-```javascript
+```html
 <img :src="image" />
 ```
 
@@ -26,10 +26,10 @@
 
 - Html:
 
-```javascript
+```html
 <p v-if="inventory > 10">More than 10 in stock!</p>
 <p v-else-if="inventory <= 10 && inventory > 0">
-10 or less in stock!
+  10 or less in stock!
 </p>
 <p v-else>Inventory is at 0!</p>
 ```
@@ -51,15 +51,15 @@ var app = new Vue({
 
 - Html:
 
-```javascript
+```html
 <ul>
   <li v-for="detail in details">{{ detail }}</li>
 </ul>
 
 <div v-for="variant in variants" key="variant.variantId">
-    <p @mouseover="updateProduct(variant.variantImage)">
-        {{ variant.variantColor }}
-    </p>
+  <p @mouseover="updateProduct(variant.variantImage)">
+    {{ variant.variantColor }}
+  </p>
 </div>
 ```
 
@@ -91,7 +91,7 @@ var app = new Vue({
 
 - Html:
 
-```javascript
+```html
 <button v-on:click="addToCart">Add to Cart</button>
 ```
 
@@ -118,6 +118,6 @@ var app = new Vue({
 
 #### shorthand
 
-```javascript
+```html
 <button @click="removeFromCart">Remove from Cart</button>
 ```
