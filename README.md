@@ -9,13 +9,14 @@
 <img v-bind:src="image" />
 ```
 
-> shorthand
-> :alt="desc"
-> :href="url"
-> :title="toolTip"
-> :class="isActive"
-> :style="isStyled"
-> :disabled="isDisabled"
+#### shorthand
+
+- :alt="desc"
+- :href="url"
+- :title="toolTip"
+- :class="isActive"
+- :style="isStyled"
+- :disabled="isDisabled"
 
 ```javascript
 <img :src="image" />
