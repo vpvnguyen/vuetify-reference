@@ -10,25 +10,17 @@
     <div id="app">
       <div class="product">
         <div class="product-image">
+          <!-- Attribute Binding -->
           <!-- v-bind dynamically binds and attribute to an expression -->
           <!-- v-bind:src="expression" -->
           <img v-bind:src="image" />
-          <!-- shorthand -->
-          <!-- 
-              :alt="desc"
-              :href="url"
-              :title="toolTip"
-              :class="isActive"
-              :style="isStyled"
-              :disabled="isDisabled"
-           -->
-          <!-- <img :src="image" /> -->
         </div>
 
         <div class="product-info">
           <!-- products from main.js plugs into this {{ expression }} -->
           <h1>{{ product }}</h1>
 
+          <!-- Conditional Rendering -->
           <p v-if="inStock">In Stock</p>
           <p v-else>Out of Stock</p>
 
@@ -38,6 +30,7 @@
           </p>
           <p v-else>Inventory is at 0!</p>
 
+          <!-- List Rendering -->
           <ul>
             <li v-for="detail in details">{{ detail }}</li>
           </ul>
@@ -48,6 +41,7 @@
             </p>
           </div>
 
+          <!-- Event Handling -->
           <button v-on:click="addToCart">Add to Cart</button>
           <button @click="removeFromCart">Remove from Cart</button>
 
