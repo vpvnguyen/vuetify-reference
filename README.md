@@ -117,4 +117,7 @@ var app = new Vue({
 
 ```html
 <button @click="removeFromCart">Remove from Cart</button>
+<div @mouseover="updateProduct">Color</div>
+<form @submit="addToCart">...</form>
+<input @keyup.enter="send" />
 ```
