@@ -259,3 +259,48 @@ computed: {
   }
 }
 ```
+
+## Components
+
+- prop: custom attribute for passing data into our components
+
+- Html:
+- product is now a component which will have it's data, methods, and computed properties to be displayed within the app
+
+```html
+<div id="app">
+  <product :premium="premium"></product>
+</div>
+```
+
+- JS:
+
+```javascript
+Vue.component("product", {
+  props: {
+    premium: {
+      type: Boolean,
+      required: true
+    }
+  },
+  // specifies structure of the component with html body
+  template: `
+  <div class="product">
+  ...
+  </div>
+    `,
+  // turn data into a function that will return an object
+  data() {
+    return {
+      ...
+});
+
+var app = new Vue({
+  el: "#app",
+  //   create data to pass into component as a prop
+  data: {
+    premium: true
+  }
+});
+
+```
