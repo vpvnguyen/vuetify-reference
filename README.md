@@ -409,3 +409,30 @@ var app = new Vue({
   @remove-from-cart="removeIdfromCart"
 ></product>
 ```
+
+## Forms
+
+- Adding reviews in vue-forms
+- create a new component called product-review
+- instead of using `v-bind` (one way binding), use `v-model` (2 way binding)
+- `v-bind` is only for one-way binding, from the data to the template
+- v-model adds a dimension which allows 2 way binding from template to the data and vice versa
+- We can use the `v-model` directive to create two-way binding on form elements
+- We can use the `.number` modifier to tell Vue to cast that value as a number, but there is a bug with it
+- We can use the `.prevent` event modifier to stop the page from reloading when the form is submitted
+- We can use Vue to do fairly simple custom form validation
+
+- According to the example below, input will be bound to name data
+
+```javascript
+Vue.component("product-review", {
+  template: `
+  <input>
+  `,
+  data() {
+    return {
+      name: null
+    };
+  }
+});
+```
