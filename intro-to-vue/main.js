@@ -1,5 +1,3 @@
-var product = "socks";
-
 // creates a new Vue instance
 var app = new Vue({
   // plug into id=app
