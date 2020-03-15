@@ -133,7 +133,7 @@ var app = new Vue({
   v-for="variant in variants"
   key="variant.variantId"
   class="color-box"
-  :style="{backgroundColor: variant.variantColor}"
+  :style="{ backgroundColor: variant.variantColor }"
   @mouseover="updateProduct(variant.variantImage)"
 ></div>
 ```
@@ -144,7 +144,7 @@ var app = new Vue({
 <button
   v-on:click="addToCart"
   :disabled="!inStock"
-  :class="{ disabledButton: !inStock}"
+  :class="{ disabledButton: !inStock }"
 >
   Add to Cart
 </button>
@@ -306,4 +306,96 @@ var app = new Vue({
   }
 });
 
+```
+
+## Communicating Events
+
+- comparing index.html from vue-components to vue-event-handling directory
+
+- move html from main.js to index.html
+
+```javascript
+Vue.component("product", {
+  props: { ... },
+  template: `
+ ~~<div class="cart">~~
+    ~~<p>Cart({{ cart }})</p>~~
+  ~~</div>~~
+  `,
+  data() { ... }
+```
+
+```html
+<div id="app">
+  <div class="cart">
+    <p>Cart({{ cart }})</p>
+  </div>
+
+  <product :premium="premium"></product>
+</div>
+```
+
+- move cart data from the Vue component to the Vue instance
+- refactor cart to take in an array so product ID can be pushed into the cart
+- since we do not want the id to show up in the cart, use the length of array to show how many items are in the cart
+
+```javascript
+Vue.component("product", {
+  props: { ... }
+  },
+  template: ` ... `,
+  data() {
+    return {
+      cart: 0,
+    };
+  },
+}
+```
+
+```javascript
+var app = new Vue({
+  el: "#app",
+  data: {
+    cart: []
+  }
+});
+```
+
+- `addtoCart()` will no longer increment the cart total
+- to fix this, refactor function to use `$emit` to pass data back up to the parent
+- when Add to Cart button is pressed, it will emit the data to the parent
+
+```javascript
+Vue.component("product", {
+  props: { ... }
+  },
+  template: ` ... `,
+  data() { ... },
+  methods: {
+    addToCart: function() {
+      // this.cart += 1;
+      this.$emit('add-to-cart', this.variants[this.selectedVariant].variantId)
+    },
+    updateProduct(index) {
+    this.selectedVariant = index;
+    }
+  }
+});
+
+var app = new Vue({
+  el: "#app",
+  data: {
+    // make cart an array to push items into the cart
+    cart: []
+  },
+  methods: {
+    updateCart(id) {
+      this.cart.push(id);
+    }
+  }
+});
+```
+
+```html
+<product :premium="premium" @add-to-cart="updateCart"></product>
 ```
