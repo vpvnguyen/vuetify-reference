@@ -230,3 +230,32 @@ data: {
     activeClass: 'active'
 }
 ```
+
+## Computed Properties
+
+- cached results are saved until changed; more efficient to use than a method
+- Html:
+
+```html
+<div
+  v-for="(variant, index) in variants"
+  :key="variant.variantId"
+  class="color-box"
+  :style="{backgroundColor: variant.variantColor}"
+  @mouseover="updateProduct(index)"
+></div>
+```
+
+- JS:
+
+```javascript
+data: {
+  brand: 'Vue Mastery',
+  product: 'socks'
+},
+computed: {
+  title() {
+    return this.brand + ' ' + this.product
+  }
+}
+```
