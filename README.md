@@ -120,3 +120,113 @@ var app = new Vue({
 <form @submit="addToCart">...</form>
 <input @keyup.enter="send" />
 ```
+
+## Class & Style Binding
+
+- Html:
+
+```html
+<div
+  v-for="variant in variants"
+  key="variant.variantId"
+  class="color-box"
+  :style="{backgroundColor: variant.variantColor}"
+  @mouseover="updateProduct(variant.variantImage)"
+></div>
+```
+
+- With JS:
+
+```html
+<button
+  v-on:click="addToCart"
+  :disabled="!inStock"
+  :class="{ disabledButton: !inStock}"
+>
+  Add to Cart
+</button>
+```
+
+```javascript
+var app = new Vue({
+  el: "#app",
+  data: {
+    inStock: false
+  }
+});
+```
+
+#### Class Binding
+
+##### Binding Classes
+
+- Html:
+
+```html
+<div
+  class="color-box"
+  :class="{ active activeClass, 'text-danger': errorClass }"
+></div>
+```
+
+- JS:
+
+```javascript
+data: {
+    activeClass: true,
+    errorClass: false,
+}
+```
+
+##### Binding Objects
+
+- Html:
+
+```html
+<div class="classObject"></div>
+```
+
+- JS:
+
+```javascript
+data: {
+    classObject: {
+        active: true,
+        'text-danger': false
+    }
+}
+```
+
+##### Binding Arrays
+
+- Html:
+
+```html
+<div :class="[activeClass, errorClass]"></div>
+```
+
+- JS:
+
+```javascript
+data: {
+    activeClass: 'active',
+    errorClass: 'text-danger'
+}
+```
+
+##### Binding Conditionals
+
+- Html:
+
+```html
+<div :class="[isActive ? activeClass : '']"></div>
+```
+
+- JS:
+
+```javascript
+data: {
+    isActive: true,
+    activeClass: 'active'
+}
+```
