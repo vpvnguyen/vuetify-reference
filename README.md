@@ -1,5 +1,8 @@
 # Vue Training
 
+- Learning the basics of Vue using Vue Mastery course.
+- https://www.vuemastery.com/courses/intro-to-vue-js/
+
 ## Attribute Binding
 
 - v-bind dynamically binds and attribute to an expression
