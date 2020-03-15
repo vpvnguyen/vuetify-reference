@@ -266,9 +266,9 @@ computed: {
 ## Components
 
 - Prop: custom attribute for passing data into our components
+- Product is now a component which will have it's data, methods, and computed properties to be displayed within the app
 
 - Html:
-- Product is now a component which will have it's data, methods, and computed properties to be displayed within the app
 
 ```html
 <div id="app">
