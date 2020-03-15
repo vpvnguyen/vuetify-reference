@@ -372,30 +372,37 @@ Vue.component("product", {
   template: ` ... `,
   data() { ... },
   methods: {
-    addToCart: function() {
-      // this.cart += 1;
+    addToCart() {
       this.$emit('add-to-cart', this.variants[this.selectedVariant].variantId)
     },
-    updateProduct(index) {
-    this.selectedVariant = index;
-    }
+    removeFromCart() {
+      this.$emit('remove-from-cart', this.variants[this.selectedVariant].variantId)
+    },
   }
 });
 
 var app = new Vue({
   el: "#app",
   data: {
-    // make cart an array to push items into the cart
     cart: []
   },
   methods: {
-    updateCart(id) {
+    addIdToCart(id) {
       this.cart.push(id);
+    },
+    removeIdfromCart(id) {
+      const index = this.cart.indexOf(id);
+      if (index > -1) return this.cart.splice(index, 1);
+      return alert(`Item ID: ${id} is not in your cart!`);
     }
   }
 });
 ```
 
 ```html
-<product :premium="premium" @add-to-cart="updateCart"></product>
+<product
+  :premium="premium"
+  @add-to-cart="updateCart"
+  @remove-from-cart="removeIdfromCart"
+></product>
 ```
