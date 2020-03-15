@@ -14,12 +14,12 @@ var app = new Vue({
       {
         variantId: 2234,
         variantColor: "green",
-        variantImage: "./vmSocks-green-onWhite.jpg"
+        variantImage: "../images/vmSocks-green-onWhite.jpg"
       },
       {
         variantId: 2235,
         variantColor: "blue",
-        variantImage: "./vmSocks-blue-onWhite.jpg"
+        variantImage: "../images/vmSocks-blue-onWhite.jpg"
       }
     ],
     cart: 0,
