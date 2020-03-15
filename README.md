@@ -311,19 +311,22 @@ var app = new Vue({
 ## Communicating Events
 
 - comparing index.html from vue-components to vue-event-handling directory
-
 - move html from main.js to index.html
+
+- Before:
 
 ```javascript
 Vue.component("product", {
   props: { ... },
   template: `
- ~~<div class="cart">~~
-    ~~<p>Cart({{ cart }})</p>~~
-  ~~</div>~~
+ <div class="cart">
+    <p>Cart({{ cart }})</p>
+  </div>
   `,
   data() { ... }
 ```
+
+- After:
 
 ```html
 <div id="app">
