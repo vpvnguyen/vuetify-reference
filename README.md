@@ -9,18 +9,17 @@
 <img v-bind:src="image" />
 ```
 
-#### shorthand
+- shorthand
 
 ```html
 <img :src="image" />
+<img :alt="desc" />
+<a :href="url">Url</a>
+<div :title="toolTip">Title</div>
+<button :class="isActive">Active</button>
+<button :disabled="isDisabled">Disabled</button>
+<p :style="isStyled">Styling</p>
 ```
-
-- :alt="desc"
-- :href="url"
-- :title="toolTip"
-- :class="isActive"
-- :style="isStyled"
-- :disabled="isDisabled"
 
 ## Conditional Rendering
 
@@ -113,7 +112,7 @@ var app = new Vue({
 });
 ```
 
-#### shorthand
+- shorthand
 
 ```html
 <button @click="removeFromCart">Remove from Cart</button>
